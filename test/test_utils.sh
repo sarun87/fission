@@ -175,7 +175,6 @@ wait_for_service() {
 wait_for_services() {
     id=$1
 
-    wait_for_service $id controller
     wait_for_service $id router
 }
 
