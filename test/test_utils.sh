@@ -191,7 +191,7 @@ helm_uninstall_fission() {
 port_forward_services() {
     id=$1
     ns=f-$id
-    port=8888
+    port=$2
 
     kubectl get pods -l svc="router" -o name --namespace $ns | \
         sed 's/^.*\///' | \
@@ -331,7 +331,7 @@ install_and_test() {
 	exit 1
     fi
 
-    port_forward_services $id
+    port_forward_services $id $routerPort
     run_all_tests $id
 
     dump_logs $id
