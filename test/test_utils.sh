@@ -195,6 +195,8 @@ port_forward_services() {
     kubectl get pods -l svc="router" -o name --namespace $ns | \
         sed 's/^.*\///' | \
         xargs -I{} kubectl port-forward {} $port:$port -n $ns &
+
+    export PATH=$ROOT/fission:$PATH
 }
 
 dump_function_pod_logs() {
