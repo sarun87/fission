@@ -7,6 +7,5 @@ set -euo pipefail
 
 echo "Test test, please ignore."
 
-echo $FISSION_URL
 echo $FISSION_ROUTER
 which fission
