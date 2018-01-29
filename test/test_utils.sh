@@ -208,7 +208,7 @@ wait_for_services() {
     wait_for_service $id controller
     wait_for_service $id router
 
-    echo Waiting for service is routable...
+    echo Waiting for services become routable...
     sleep 10
 }
 

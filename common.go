@@ -18,9 +18,19 @@ package fission
 
 import (
 	"fmt"
+	"io"
+	"net"
 )
 
 func UrlForFunction(name string) string {
 	prefix := "/fission-function"
 	return fmt.Sprintf("%v/%v", prefix, name)
+}
+
+func IsNetworkError(err error) bool {
+	if err == io.EOF {
+		return true
+	}
+	_, ok := err.(net.Error)
+	return ok
 }
